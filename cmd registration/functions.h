@@ -56,13 +56,13 @@ void fileExistenceCheck(string path) {
 void addNewUser(User* user_data, string path) {
 	system("cls"); string input_login, input_password;
 
-	cout << "Ââåäèòå æåëàåìûé ëîãèí: "; cin >> input_login;
-	if (!availabilityCheck(user_data, path, input_login)) { system("cls"); cout << "[ ÎØÈÁÊÀ ] Èìÿ ïîëüçîâàòåëÿ '" << input_login << "' óæå çàíÿòî.\n"; system("pause"); addNewUser(user_data, path); }
+	cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¦Ã¥Ã«Ã Ã¥Ã¬Ã»Ã© Ã«Ã®Ã£Ã¨Ã­: "; cin >> input_login;
+	if (!availabilityCheck(user_data, path, input_login)) { system("cls"); cout << "[ ÃŽÃ˜ÃˆÃÃŠÃ€ ] ÃˆÃ¬Ã¿ Ã¯Ã®Ã«Ã¼Ã§Ã®Ã¢Ã Ã²Ã¥Ã«Ã¿ '" << input_login << "' Ã³Ã¦Ã¥ Ã§Ã Ã­Ã¿Ã²Ã®.\n"; system("pause"); addNewUser(user_data, path); }
 	else {
-		cout << "Ââåäèòå æåëàåìûé ïàðîëü "; cin >> input_password;
+		cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¦Ã¥Ã«Ã Ã¥Ã¬Ã»Ã© Ã¯Ã Ã°Ã®Ã«Ã¼ "; cin >> input_password;
 
 		ofstream file(path, ios::app); file << '\n' << input_login << '|' << input_password; file.close(); system("cls");
-		cout << "Óñïåøíî äîáàâëåí ïîëüçîâàòåëü " << input_login << '\n'; system("pause"); system("cls");
+		cout << "Ã“Ã±Ã¯Ã¥Ã¸Ã­Ã® Ã¤Ã®Ã¡Ã Ã¢Ã«Ã¥Ã­ Ã¯Ã®Ã«Ã¼Ã§Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼ " << input_login << '\n'; system("pause"); system("cls");
 	}
 
 } // Adding a new user data
@@ -97,19 +97,19 @@ void MainWindowInit(string path) {
 	int function; string input_login, input_password;
 	User* user_data; bool call_user;
 
-	cout << "Ãëàâíîå ìåíþ\n-----------------\n\n[1] Àâòîðèçàöèÿ\n[2] Ðåãèñòðàöèÿ\n\n-----------------\n" << "Ââîä: "; cin >> function; system("cls");
+	cout << "ÃƒÃ«Ã Ã¢Ã­Ã®Ã¥ Ã¬Ã¥Ã­Ã¾\n-----------------\n\n[1] Ã€Ã¢Ã²Ã®Ã°Ã¨Ã§Ã Ã¶Ã¨Ã¿\n[2] ÃÃ¥Ã£Ã¨Ã±Ã²Ã°Ã Ã¶Ã¨Ã¿\n\n-----------------\n" << "Ã‚Ã¢Ã®Ã¤: "; cin >> function; system("cls");
 
 	if (function == 1) {
 		user_data = readFile(path);
 
-		cout << "Àâòîðèçàöèÿ\n-----------------\n\nÂâåäèòå ëîãèí: "; cin >> input_login;
-		cout << "\nÂâåäèòå ïàðîëü: "; cin.ignore(); getline(cin, input_password);
+		cout << "Ã€Ã¢Ã²Ã®Ã°Ã¨Ã§Ã Ã¶Ã¨Ã¿\n-----------------\n\nÃ‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã«Ã®Ã£Ã¨Ã­: "; cin >> input_login;
+		cout << "\nÃ‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¯Ã Ã°Ã®Ã«Ã¼: "; cin.ignore(); getline(cin, input_password);
 		system("cls");
 
 		call_user = authentication(input_login, input_password, user_data, path);
 
-		if (call_user) { cout << "Óñïåøíî!\n"; system("pause"); }
-		else { cout << "[ ÎØÈÁÊÀ ] Èìÿ ïîëüçîâàòåëÿ èëè ïàðîëü ââåäåíû íåâåðíî.\n"; system("pause"); }
+		if (call_user) { cout << "Ã“Ã±Ã¯Ã¥Ã¸Ã­Ã®!\n"; system("pause"); }
+		else { cout << "[ ÃŽÃ˜ÃˆÃÃŠÃ€ ] ÃˆÃ¬Ã¿ Ã¯Ã®Ã«Ã¼Ã§Ã®Ã¢Ã Ã²Ã¥Ã«Ã¿ Ã¨Ã«Ã¨ Ã¯Ã Ã°Ã®Ã«Ã¼ Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã» Ã­Ã¥Ã¢Ã¥Ã°Ã­Ã®.\n"; system("pause"); }
 	}
 	if (function == 2) {
 		user_data = readFile(path);
