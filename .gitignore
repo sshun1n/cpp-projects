@@ -1,0 +1,7 @@
+cmd registration.sln
+cmd registration.vcxproj
+cmd registration.vcxproj.filters
+cmd registration.vcxproj.user
+cmd registration/
+data.txt
+x64/
